@@ -1,8 +1,28 @@
+'use client';
+
 import Image from "next/image";
 import Link from "next/link";
 import styles from "./navbar.module.css";
+import SignIn from "./sign-in";
+import { onAuthStateChangedHandler } from "../firebase/firebase";
+import { useEffect, useState } from "react";
+import { User } from "firebase/auth";
+
+//closure
 
 export default function Navbar() {
+  // Init user state
+  const [ user, setUser ] = useState<User | null>(null);
+
+  useEffect(() => {
+    const unsubscribe = onAuthStateChangedHandler((user) => {
+      setUser(user);
+    })
+
+    // CleanUp subscription on unmount
+    return () => unsubscribe();
+  });
+
   return (
     <nav className={styles.nav}>
       <Link href="/" >
@@ -12,6 +32,11 @@ export default function Navbar() {
             <p className={styles.text}>VideoStation</p>
         </div>
       </Link>
+      {
+        // TODO: Add a Upload Button
+      }
+      <SignIn user={user} />
     </nav>
+    
   )
 } 
