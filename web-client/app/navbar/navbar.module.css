@@ -1,0 +1,30 @@
+/* CSS for YouTube logo */
+.nav {
+  display: flex;
+  align-items: center;
+}
+
+.nav img {
+  width: 80px;
+  /* Set the width of the logo image as needed */
+  height: 80px;
+  padding: 10px;
+  /* Set the height of the logo image as needed */
+}
+
+.container {
+  display: flex;
+  /* Make the logo and text elements flex containers */
+  align-items: center;
+  /* Vertically align the elements inside the container */
+  gap: 10px;
+  /* Adjust the padding between the image and text as needed */
+}
+
+.text {
+  font-size: 30px;
+  font-weight: bold;
+  color: black;
+  /* Adjust the color as needed */
+  margin-bottom: 30px;
+}
